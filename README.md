@@ -3,4 +3,4 @@ glPortfolio
 
 WebGL graphics programming portfolio.
 
-You can view it at http://jship.github.com/glPortfolio.
+You may view it online at: http://jship.github.com/glPortfolio.
