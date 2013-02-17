@@ -244,7 +244,9 @@ $(document).ready(function() {
         },
         load: function(event, ui)
         {
-            ui.panel.innerHTML = '<pre><code class="language-clike">' + ui.panel.innerHTML + '</code></pre>';
+            ui.panel.innerHTML = '<pre class="language-clike><code class="language-clike">' +
+                                     ui.panel.innerHTML +
+                                 '</code></pre>';
         }
     });
 
