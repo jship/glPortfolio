@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Graphics Programming Portfolio</title>
+
+        <link href="css/windigo/jquery-ui-1.9.0.custom.min.css" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet">
+
+        <script src="js/jquery-1.9.0.min.js"></script>
+        <script src="js/jquery-ui-1.9.0.custom.min.js"></script>
+        <script>
+            $(function()
+              {
+                  $(".outer-accordion").accordion(
+                  {
+                      collapsible: true,
+                      active: false,
+                      heightStyle: "content"
+                  });
+                  $(".link-button").button();
+              }
+            );
+        </script>
+
+        <style>
+            .outer-accordion-headers
+            {
+                margin-top: 2em;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Graphics Programming Portfolio</h1>
+        <div class="ui-widget">
+            This page contains links to WebGL demos I've put together, as well
+            as some links to my other graphics-related projects. A WebGL-enabled
+            browser must be used to view the demos.
+        </div>
+        
+        <h2 class="outer-accordion-headers">Demos</h2>
+        <div class="outer-accordion">
+            <h3>Metallic Perfect Mirror Teapot</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="demos/metallic/metallic.html" target="_blank">View demo</a>
+                </p>
+                <p>
+                    This demo renders the Utah teapot with a metallic, perfect
+                    mirror surface and environment mapping. The RGB color of the
+                    teapot is derived from the metal's refractive indices and a
+                    light source simulated as a black body radiator. The light
+                    source's color temperature and the specific metal can be
+                    customized. The CIE XYZ color is computed from the metal's
+                    Fresnel reflectance, black body radiation, and the CIE color
+                    matching functions, integrated over discretized wavelength.
+                    The XYZ color is then converted to RGB color based on the
+                    chosen output color space. (HDTV, NTSC, PAL, etc.)  This
+                    allows for correct RGB color rendering independent of the
+                    display device. The RGB color is then modulated with the
+                    environment map's grayscale RGB color. The final color is
+                    then gamma corrected. All color computation is performed on
+                    the GPU (excluding caching the transformation matrices that
+                    convert XYZ color to device RGB).
+                </p>
+            </div>
+            <h3>Macbeth ColorChecker</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="index.html" target="_blank">View demo</a>
+                </p>
+                <p>
+                    This demo renders the 24 individual squares of the standard
+                    Macbeth ColorChecker. A Macbeth ColorChecker is used in many
+                    areas where output color needs to be compared (films,
+                    astronomy, spectroscopy, etc.), since the colors in the chart
+                    are consistent under many light conditions. This was my first
+                    demo where output RGB color was determined entirely by a
+                    light source's spectral power distribution. The light source's
+                    color temperature and the output color space are modifiable.
+                    The light source is simulated as a black body radiator. The
+                    CIE XYZ color is computed from the spectral power distribution
+                    and the CIE color matching functions, integrated over
+                    discretized wavelength. The XYZ color is then converted to
+                    RGB color based on the chosen output color space (HDTV, NTSC,
+                    PAL, etc.) This allows for correct RGB rendering independent
+                    of the display device.
+                </p>
+            </div>
+            <h3>Oren-Nayar Diffuse Reflectance Model</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="index.html" target="_blank">View demo</a>
+                </p>
+                <p>
+                    This demo renders the Utah teapot with a surface resembling
+                    clay or plaster. It uses the Oren-Nayar reflectance model
+                    for diffuse surfaces. The model borrows the Torrance and
+                    Sparrow idea that surfaces are composed of tiny microfacets.
+                    Each microfacet can have a different orientation, so each one
+                    contributes to the output radiance. The model empirically
+                    accounts for masking/shadowing, microfacet distribution and
+                    interreflection from these microfacets. A Guassian
+                    distribution gives good results as an approximation of the
+                    microfacet distribution, so this demo allows for modifying
+                    the standard deviation parameter (to change the variance).
+                    The Oren-Nayar model does not account for specular
+                    reflection, focusing strictly on diffuse reflection.
+                    The model is widely used in the industry today.
+                </p>
+            </div>
+            <h3>Cook-Torrence Specular Model</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="index.html" target="_blank">View demo</a>
+                </p>
+                <p>
+                    This demo renders the Utah teapot with a specular component,
+                    but no diffuse component. When compared to Blinn or Phong
+                    specular reflection, the Cook-Torrance model provides a
+                    more physically-based computation. The Blinn and Phong
+                    approaches use basic mathematical approximations of the 
+                    specular color based on the viewing angle. The Cook-Torrance
+                    approach accounts for masking/shadowing, microfacet
+                    distribution, and interreflection from these microfacets.
+                    This allows for much more variability in color across the
+                    specular highlights of the object rendered. The RGB color
+                    is derived from the metal's real and imaginary refractive
+                    indices chosen at three wavelengths (630 for red, 533 for
+                    green, and 473 for blue). These refractive indices are
+                    used in calculating the Fresnel reflectance. The Fresnel
+                    reflectance is scaled by the distribution function,
+                    and the masking approximation. The result is then
+                    inversely scaled by terms representing how much of the
+                    surface is visible to the light source and how much of
+                    surface is visible to the viewer.
+                </p>
+            </div>
+            <h3>Phong Shading</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="index.html" target="_blank">View demo</a>
+                </p>
+                <p>
+                    This demo renders the Utah teapot with diffuse and specular
+                    components, using Phong shading.  Phong shading is a simple
+                    and fast technique for lighting a scene.  It is more of a rough
+                    approximation than a physically-based model.  The diffuse
+                    component is derived from the light and normal vectors, while
+                    the specular component is derived from the viewing angle and
+                    reflected light vector.
+                </p>
+            </div>
+            <h3>Coming Soon</h3>
+            <div>
+                <p>
+                    The following are demos I have previously written in C++/OpenGL,
+                    but I have not ported them to Javascript/WebGL yet:
+                </p>
+                <ul>
+                    <li>Irradiance Mapping</li>
+                    <li>Shadow Mapping</li>
+                    <li>Projection-based Shadowing</li>
+                    <li>Volume-based Shadowing</li>
+                    <li>Planar Reflection with Blending</li>
+                    <li>Cel Shading</li>
+                </ul>
+                <p>
+                    The following are demos I would like to write if I have the
+                    free time:
+                </p>
+                <ul>
+                    <li>Hemicube Radiosity</li>
+                    <li>
+                        Progressive Radiosity
+                        <ul>
+                            <li>Gathering algorithm</li>
+                            <li>Shooting algorithm</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2 class="outer-accordion-headers">Links</h2>
+        <div class="outer-accordion">
+            <h3>ShipGL</h3>
+            <div>
+                <p>
+                    <a class="link-button" href="https://github.com/jship/ShipGL" target="_blank">GitHub Page</a>
+                </p>
+                <p>
+                    ShipGL is an abstraction over WebGL. It was made for the
+                    students in the undergraduate graphics programming course
+                    at the University of Central Florida. It is intentionally
+                    a thin abstraction, as its purpose is to help people new
+                    to graphics programming learn all the important concepts
+                    without getting overwhelmed by some of the more annoying
+                    or error-prone aspects of the OpenGL pipeline.  Most WebGL
+                    examples online use a procedural approach, so I thought it
+                    might be helpful for these students to have an object-oriented
+                    library for working with WebGL. It is not something like
+                    <a href="https://github.com/mrdoob/three.js">Three.js</a>,
+                    which abstracts away just about all the WebGL details.
+                    It is a very small library, but handles some of the
+                    lower-level tasks like efficient model loading, shader
+                    compilation, and camera manipulation. Rendering code is
+                    entirely provided by the user. This way, users of the library
+                    learn all about binding buffers/textures, activating shaders,
+                    updating uniforms/attributes, making GPU draw calls, etc.
+                    Classes are provided to make many of these simpler and cleaner
+                    than using the raw WebGL API, but users still must learn how
+                    the underlying pipeline works.
+                </p>
+                <p>
+                    All of the demos above were made using ShipGL.
+                </p>
+            </div>
+        </div>
+
+        <div class="ui-widget">
+            <p>
+                &copy; Jason Shipman | jasonpshipman&lt;AT&gt;gmail&lt;DOT&gt;com | 2013
+            </p>
+        </div>
+    </body>
+</html>

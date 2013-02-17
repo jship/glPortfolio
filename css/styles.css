@@ -1,0 +1,93 @@
+body
+{
+    background-color: #DFE7F2;
+    font: 62.5% "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    margin: 25px auto;
+    width: 700px;
+}
+
+table
+{
+    margin: 15px auto;
+}
+
+table, td, th
+{
+    border: 2px solid black;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th
+{
+    background-color: #CCCCCC;
+}
+
+.demo-title
+{
+    border: 1px solid #aaaaaa;
+    background: #c0b5de url(windigo/images/ui-bg_glass_65_c0b5de_1x400.png) 50% 50% repeat-x;
+    color: #212121;
+    margin: auto;
+    text-align: center;
+	-moz-box-shadow: 8px 8px 18px #AAAAAA;
+	-webkit-box-shadow: 8px 8px 18px #AAAAAA;
+	-o-box-shadow: 8px 8px 18px #AAAAAA;
+	box-shadow: 8px 8px 18px #AAAAAA;
+}
+
+.demo-container
+{
+    background-color: #e3e0bf;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+	-moz-box-shadow: 8px 8px 18px #AAAAAA;
+	-webkit-box-shadow: 8px 8px 18px #AAAAAA;
+	-o-box-shadow: 8px 8px 18px #AAAAAA;
+	box-shadow: 8px 8px 18px #AAAAAA;
+}
+
+.demo-canvas
+{
+    display: block;
+    margin: auto auto 10px auto;
+    border: 4px solid #aaaaaa;
+}
+
+.demo-gui
+{
+    display: block;
+    width: 640px;
+    margin: auto;
+}
+
+.demo-gui label
+{
+    display: block;
+}
+
+.ui-combobox
+{
+    position: relative;
+    display: inline-block;
+}
+
+.ui-combobox-toggle
+{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /* adjust styles for IE 6/7 */
+    *height: 1.7em;
+    *top: 0.1em;
+}
+
+.ui-combobox-input
+{
+    margin: 0;
+    padding: 0.3em;
+}
+
