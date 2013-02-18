@@ -26,6 +26,7 @@
             <div id="demoGuiTabs" class="demo-gui ui-widget">
                 <ul>
                     <li><a href="#tabOptions">Options</a></li>
+                    <li><a href="#tabControls">Controls</a></li>
                     <li><a href="#tabInfo">Info</a></li>
                     <li><a href="spectrum.vs">Vertex Shader</a></li>
                     <li><a href="spectrum.fs">Fragment Shader</a></li>
@@ -84,16 +85,55 @@
                         </select>
                     </p>
                     <p>
-                        <label>Temperature:</label>
+                        <label>Temperature (K):</label>
                         <input id="tempRange" name="value" />
                     </p>
                     <div id="helpBox" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
                         <p>
                             <span class="ui-icon ui-icon-help" style="float: left; margin-right: .3em;"></span>
-                            To view the controls, please mouse over this box.
+                            To view the controls, please select the 'Controls' tab.
                             <span style="color: purple;">You can remove this box by clicking on it.</span>
                         </p>
                     </div>
+                </div>
+                <div id="tabControls">
+                    <table>
+                        <tr>
+                            <th colspan="2">Key Map</th>
+                        </tr>
+                        <tr>
+                            <td>W</td>
+                            <td>Move forward</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>Move backward</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>Move left</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Move right</td>
+                        </tr>
+                        <tr>
+                            <td>K</td>
+                            <td>Move up</td>
+                        </tr>
+                        <tr>
+                            <td>J</td>
+                            <td>Move down</td>
+                        </tr>
+                        <tr>
+                            <td>H</td>
+                            <td>Look left</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>Look right</td>
+                        </tr>
+                    </table>
                 </div>
                 <div id="tabInfo">
                     <div id="infoBox" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">

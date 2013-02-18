@@ -178,57 +178,11 @@ ShipGL.DemoApp.prototype._initializeCamera = function()
 };
 
 $(document).ready(function() {
-    function controlsTableHtml()
-    {
-        return [
-            '<table>',
-            '    <tr>',
-            '        <th colspan="2">Controls</th>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>W</td>',
-            '        <td>Move forward</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>S</td>',
-            '        <td>Move backward</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>A</td>',
-            '        <td>Move left</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>D</td>',
-            '        <td>Move right</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>K</td>',
-            '        <td>Move up</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>J</td>',
-            '        <td>Move down</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>H</td>',
-            '        <td>Look left</td>',
-            '    </tr>',
-            '    <tr>',
-            '        <td>L</td>',
-            '        <td>Look right</td>',
-            '    </tr>',
-            '</table>',
-            'You can tell I love vim.'
-        ].join("\n");
-    };
-
     $("select").combobox();
 
     $("#tempRange").spinner({ min: 1000, max: 10000, step: 100 });
     $("#tempRange").spinner("value", 6800);
 
-    $("#helpBox").attr("title", controlsTableHtml());
-    $("#helpBox").tooltip({ track: true });
     $("#helpBox").click(function() { $("#helpBox").hide("highlight"); });
     
     $("#demoGuiTabs").tabs({
@@ -238,20 +192,31 @@ $(document).ready(function() {
         {
             ui.jqXHR.fail(function()
             {
-                ui.panel.innerHtml = "Couldn't load this tab. We'll try to fix this as soon as possible. " +
-                    "If this wouldn't be a demo.";
+                var tab = $(ui.panel);
+                tab.html('<div class="ui-widget">' +
+                             '<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;">' +
+                                 '<p>' +
+                                     '<span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>' +
+                                     '<strong>Error:</strong> AJAX could not load this content. ' +
+                                     'GitHub might be having problems at this time.' +
+                                 '</p>' +
+                             '</div>' +
+                         '</div>'
+                 );
             });
         },
         load: function(event, ui)
         {
             var tab = $(ui.panel);
-            tab.html('<code class="language-clike">' + tab.text() + '</code>');
-            tab.html('<pre class="language-clike">' + tab.html() + '</pre>');
+            tab.html('<pre class="language-clike"><code class="language-clike">' + tab.text() + '</code></pre>');
 
             var code = $("code", tab)[0];
             Prism.highlightElement(code, false);
         }
     });
+
+    $("#tabControls").attr("title", "You can probably tell that I love vim!");
+    $("#tabControls").tooltip({ track: true });
 
     var app = new ShipGL.DemoApp("glCanvas");
     app.initialize();
