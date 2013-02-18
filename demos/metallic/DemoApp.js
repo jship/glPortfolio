@@ -182,6 +182,15 @@ $(document).ready(function() {
 
     $("#tempRange").spinner({ min: 1000, max: 10000, step: 100 });
     $("#tempRange").spinner("value", 6800);
+    $("#tempRange").attr("title", "Valid values are 1000-10000.");
+    $("#tempRange").tooltip({
+        track: true,
+        position: {
+            my: "left+30 center",
+            at: "right center",
+            collision: "flipfit"
+        }
+    });
 
     $("#helpBox").click(function() { $("#helpBox").hide("highlight"); });
     

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Macbeth ColorChecker</title>
+        <meta charset="utf-8" />
+
+        <link href="../../css/windigo/jquery-ui-1.9.0.custom.min.css" rel="stylesheet">
+        <link href="../../css/prism.css" rel="stylesheet">
+        <link href="../../css/styles.css" rel="stylesheet">
+
+        <script src="../../js/jquery-1.9.0.min.js"></script>
+        <script src="../../js/jquery-ui-1.9.0.custom.min.js"></script>
+        <script src="../../js/jquery-ui-combobox.js"></script>
+        <script src="../../js/prism.js"></script>
+        <script src="../../js/gl-matrix-min.js"></script>
+        <script src="../../js/webgl-utils.js"></script>
+        <script src="../../js/ShipGL.min.js"></script>
+        <script src="SpectrumData.js"></script>
+        <script src="DemoApp.js"></script>
+    </head>
+    <body>
+        <h1 class="demo-title ui-corner-top">Macbeth ColorChecker</h1>
+        <div class="demo-container ui-corner-bottom">
+            <canvas class="demo-canvas" id="glCanvas" width="640" height="360"></canvas>
+            <div id="demoGuiTabs" class="demo-gui ui-widget">
+                <ul>
+                    <li><a href="#tabOptions">Options</a></li>
+                    <li><a href="#tabInfo">Info</a></li>
+                </ul>
+                <div id="tabOptions">
+                    <p>
+                        <label>Color System:</label>
+                        <select id="colorSystemSelector">
+                            <option value="Adobesystem">Adobe</option>
+                            <option value="Applesystem">Apple</option>
+                            <option value="BestRGBsystem">Best RGB</option>
+                            <option value="BetaRGBsystem">Beta RGB</option>
+                            <option value="BruceRGBsystem">Bruce RGB</option>
+                            <option value="CIEsystem">CIE</option>
+                            <option value="ColorMatchsystem">Color Match</option>
+                            <option value="DonRGB4system">Don RGB</option>
+                            <option value="ECIv2system">ECIv2</option>
+                            <option value="EktaSpacesystem">Ekta Space</option>
+                            <option value="HDTVsystem">HDTV</option>
+                            <option value="NTSCsystem">NTSC</option>
+                            <option value="PALSECAMsystem">PAL/SECAM</option>
+                            <option value="ProPhotosystem">Pro Photo</option>
+                            <option value="Rec709system">Rec. 709</option>
+                            <option value="SMPTEsystem">SMPTE</option>
+                            <option value="SRGBsystem">SRGB</option>
+                            <option value="WideGamutsystem">Wide Gamut</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>ColorChecker Square:</label>
+                        <input id="squareRange" name="value" />
+                    </p>
+                    <p>
+                        <label>Temperature (K):</label>
+                        <input id="tempRange" name="value" />
+                    </p>
+                </div>
+                <div id="tabInfo">
+                    <div id="infoBox" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                        <p>
+                            This demo renders the 24 individual squares of the standard
+                            Macbeth ColorChecker. A Macbeth ColorChecker is used in many
+                            areas where output color needs to be compared (films,
+                            astronomy, spectroscopy, etc.), since the colors in the chart
+                            are consistent under many light conditions. This was my first
+                            demo where output RGB color was determined entirely by a
+                            light source's spectral power distribution. The light source's
+                            color temperature and the output color space are modifiable.
+                            The light source is simulated as a black body radiator. The
+                            CIE XYZ color is computed from the spectral power distribution
+                            and the CIE color matching functions, integrated over
+                            discretized wavelength. The XYZ color is then converted to
+                            RGB color based on the chosen output color space (HDTV, NTSC,
+                            PAL, etc.) This allows for correct RGB rendering independent
+                            of the display device.
+                            </p>
+                        <p>
+                            No shaders are used for this demo.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
