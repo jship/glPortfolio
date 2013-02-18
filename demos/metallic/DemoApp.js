@@ -244,9 +244,12 @@ $(document).ready(function() {
         },
         load: function(event, ui)
         {
-            ui.panel.innerHTML = '<pre class="language-clike><code class="language-clike">' +
-                                     ui.panel.innerHTML +
-                                 '</code></pre>';
+            var tab = $(ui.panel);
+            tab.html('<code class="language-clike">' + tab.text() + '</code>');
+            tab.html('<pre class="language-clike">' + tab.html() + '</pre>');
+
+            var code = $("code", tab)[0];
+            Prism.highlightElement(code, false);
         }
     });
 
