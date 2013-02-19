@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Oren-Nayar Diffuse Reflectance Model</title>
+        <meta charset="utf-8" />
+
+        <link href="../../css/windigo/jquery-ui-1.9.0.custom.min.css" rel="stylesheet">
+        <link href="../../css/prism.css" rel="stylesheet">
+        <link href="../../css/styles.css" rel="stylesheet">
+
+        <script src="../../js/jquery-1.9.0.min.js"></script>
+        <script src="../../js/jquery-ui-1.9.0.custom.min.js"></script>
+        <script src="../../js/jquery-ui-combobox.js"></script>
+        <script src="../../js/prism.js"></script>
+        <script src="../../js/gl-matrix-min.js"></script>
+        <script src="../../js/webgl-utils.js"></script>
+        <script src="../../js/ShipGL.min.js"></script>
+        <script src="DemoApp.js"></script>
+        <script src="DemoModel.js"></script>
+    </head>
+    <body>
+        <h1 class="demo-title ui-corner-top">Oren-Nayar Diffuse Reflectance Model</h1>
+        <div class="demo-container ui-corner-bottom">
+            <canvas class="demo-canvas" id="glCanvas" width="640" height="360"></canvas>
+            <div id="demoGuiTabs" class="demo-gui ui-widget">
+                <ul>
+                    <li><a href="#tabOptions">Options</a></li>
+                    <li><a href="#tabControls">Controls</a></li>
+                    <li><a href="#tabInfo">Info</a></li>
+                    <li><a href="lighting.vs">Vertex Shader</a></li>
+                    <li><a href="lighting.fs">Fragment Shader</a></li>
+                </ul>
+                <div id="tabOptions">
+                    <p>
+                        <label>Model:</label>
+                        <select id="modelSelector">
+                            <option value="../../models/teapot/models/model.json">Teapot</option>
+                        </select>
+                    </p>
+                    <p>
+                        <div id="lightType">
+                            <label>Light Type:</label>
+
+                            <label for="pointLight">Point</label><?
+                            ?><input type="radio" id="pointLight" name="radio" checked /><?
+                            ?><label for="dirLight">Directional</label><?
+                            ?><input type="radio" id="dirLight" name="radio" />
+                        </div>
+                    </p>
+                    <p>
+                        <div id="rotateLightWrapper">
+                            <label>Light Rotation:</label>
+
+                            <input type="checkbox" id="rotateLight" /><?
+                            ?><label for="rotateLight">Off</label>
+                        </div>
+                    </p>
+                    <p>
+                        <label>Standard Deviation:</label>
+                        <input id="stdDevRange" name="value" />
+                    </p>
+                    <div id="helpBox" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                        <p>
+                            <span class="ui-icon ui-icon-help" style="float: left; margin-right: .3em;"></span>
+                            To view the controls, please select the 'Controls' tab.
+                            <span style="color: purple;">You can remove this box by clicking on it.</span>
+                        </p>
+                    </div>
+                </div>
+                <div id="tabControls">
+                    <table>
+                        <tr>
+                            <th colspan="2">Key Map</th>
+                        </tr>
+                        <tr>
+                            <td>W</td>
+                            <td>Move forward</td>
+                        </tr>
+                        <tr>
+                            <td>S</td>
+                            <td>Move backward</td>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>Move left</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>Move right</td>
+                        </tr>
+                        <tr>
+                            <td>K</td>
+                            <td>Move up</td>
+                        </tr>
+                        <tr>
+                            <td>J</td>
+                            <td>Move down</td>
+                        </tr>
+                        <tr>
+                            <td>H</td>
+                            <td>Look left</td>
+                        </tr>
+                        <tr>
+                            <td>L</td>
+                            <td>Look right</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tabInfo">
+                    <div id="infoBox" class="ui-state-highlight ui-corner-all" style="margin-top: 20px; padding: 0 .7em;">
+                        <p>
+                            This demo renders the Utah teapot with a surface resembling
+                            clay or plaster. It uses the Oren-Nayar reflectance model
+                            for diffuse surfaces. The model borrows the Torrance and
+                            Sparrow idea that surfaces are composed of tiny microfacets.
+                            Each microfacet can have a different orientation, so each one
+                            contributes to the output radiance. The model empirically
+                            accounts for masking/shadowing, microfacet distribution and
+                            interreflection from these microfacets. A Guassian
+                            distribution gives good results as an approximation of the
+                            microfacet distribution, so this demo allows for modifying
+                            the standard deviation parameter (to change the variance).
+                            The Oren-Nayar model does not account for specular
+                            reflection, focusing strictly on diffuse reflection.
+                            The model is widely used in the industry today.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
